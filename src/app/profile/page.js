@@ -1,5 +1,10 @@
 import React from 'react';
+import ProfileCard from '../../components/User';
 
 export default function Profile() {
-  return <div>profile here</div>;
+  return (
+    <div>
+      <ProfileCard />
+    </div>
+  );
 }

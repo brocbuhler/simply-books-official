@@ -21,6 +21,7 @@ function AuthProvider(props) {
     firebase.auth().onAuthStateChanged((fbUser) => {
       if (fbUser) {
         setUser(fbUser);
+        console.log('User Identified');
       } else {
         setUser(false);
       }
