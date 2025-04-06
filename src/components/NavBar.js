@@ -21,7 +21,7 @@ export default function NavBar() {
             <Link className="nav-link" href="/authors">
               Authors
             </Link>
-            <Link className="nav-link" href="/author/edit">
+            <Link className="nav-link" href="/author/new">
               Create Author
             </Link>
             <Link className="nav-link" href="/profile">
