@@ -35,6 +35,7 @@ export default function AuthForm({ obj = initialState }) {
       updateAuthor(formInput).then(() => router.push(`/author/${obj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
+      console.warn(payload);
       createAuthor(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateAuthor(patchPayload).then(() => {
@@ -50,16 +51,16 @@ export default function AuthForm({ obj = initialState }) {
 
       {/* NAME INPUT  */}
       <FloatingLabel controlId="floatingInput1" label="Author First Name" className="mb-3">
-        <Form.Control type="text" placeholder="Enter a first name" name="first name" value={formInput.first_name} onChange={handleChange} required />
+        <Form.Control type="text" placeholder="Enter a first name" name="first_name" value={formInput.first_name} onChange={handleChange} required />
       </FloatingLabel>
 
       <FloatingLabel controlId="floatingInput1" label="Author Last Name" className="mb-3">
-        <Form.Control type="text" placeholder="Enter a last name" name="last name" value={formInput.last_name} onChange={handleChange} required />
+        <Form.Control type="text" placeholder="Enter a last name" name="last_name" value={formInput.last_name} onChange={handleChange} required />
       </FloatingLabel>
 
       {/* EMAIL INPUT  */}
       <FloatingLabel controlId="floatingInput2" label="Author email" className="mb-3">
-        <Form.Control type="url" placeholder="Enter an email" name="email" value={formInput.email} onChange={handleChange} required />
+        <Form.Control type="text" placeholder="Enter an email" name="email" value={formInput.email} onChange={handleChange} required />
       </FloatingLabel>
 
       {/* A WAY TO HANDLE UPDATES FOR TOGGLES, RADIOS, ETC  */}
