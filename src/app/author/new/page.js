@@ -1,5 +1,8 @@
 import React from 'react';
+import AuthForm from '../../../components/forms/AuthorForm';
 
-export default function NewAuthor() {
-  return <div>this is the new author page</div>;
+// TODO: create a reusable form to add/edit author and render in this view
+
+export default function AddAuthor() {
+  return <AuthForm />;
 }
