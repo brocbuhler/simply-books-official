@@ -12,6 +12,7 @@ export default function AuthorCard({ authObj, onUpdate }) {
   // SO WE PASS THE FUNCTION FROM THE PARENT THAT GETS THE AUTHORS
   const deleteThisAuthor = () => {
     if (window.confirm(`Delete ${authObj.last_name}?`)) {
+      console.log(authObj.firebaseKey);
       deleteSingleAuthor(authObj.firebaseKey).then(() => onUpdate());
     }
   };
@@ -25,13 +26,13 @@ export default function AuthorCard({ authObj, onUpdate }) {
         <p className="card-text bold">{authObj.email}</p>
         <p className="card-text bold">Is favorite? : {authObj.favorite}</p>
         {/* DYNAMIC LINK TO VIEW THE AUTHOR DETAILS  */}
-        <Link href={`/book/${authObj.firebaseKey}`} passHref>
+        <Link href={`/author/${authObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">
             VIEW
           </Button>
         </Link>
         {/* DYNAMIC LINK TO EDIT THE AUTHOR DETAILS  */}
-        <Link href={`/book/edit/${authObj.firebaseKey}`} passHref>
+        <Link href={`/author/edit/${authObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
         <Button variant="danger" onClick={deleteThisAuthor} className="m-2">

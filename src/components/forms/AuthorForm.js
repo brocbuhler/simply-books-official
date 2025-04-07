@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import PropTypes from 'prop-types';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
@@ -21,6 +21,10 @@ export default function AuthForm({ obj = initialState }) {
   const router = useRouter();
   const { user } = useAuth();
 
+  useEffect(() => {
+    if (obj.firebaseKey) setFormInput(obj);
+  }, [obj, user]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormInput((prevState) => ({
@@ -32,7 +36,8 @@ export default function AuthForm({ obj = initialState }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updateAuthor(formInput).then(() => router.push(`/author/${obj.firebaseKey}`));
+      console.warn(obj.firebaseKey);
+      updateAuthor(formInput).then(() => router.push(`/authors`));
     } else {
       const payload = { ...formInput, uid: user.uid };
       console.warn(payload);
