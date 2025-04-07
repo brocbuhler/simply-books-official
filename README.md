@@ -15,7 +15,7 @@ This is a remake of an older project I've done but with react/ next js instead o
 - Profile page that display user info
 
 ## Video Walkthrough of APP NAME <!-- A loom link is sufficient -->
-[{Loom Video}](https://www.loom.com/share/3c835bc7e1ea42fea4491d2c31428932?sid=eb9dc62a-d80a-4d23-96d2-a289d4a328ed)
+[{https://www.loom.com/share/3c835bc7e1ea42fea4491d2c31428932?sid=eb9dc62a-d80a-4d23-96d2-a289d4a328ed}](https://www.loom.com/share/3c835bc7e1ea42fea4491d2c31428932?sid=eb9dc62a-d80a-4d23-96d2-a289d4a328ed)
 
 ## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
 - [Check out the deployed site](https://brocsbooks.netlify.app/)
