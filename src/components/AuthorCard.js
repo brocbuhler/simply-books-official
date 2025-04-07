@@ -6,13 +6,16 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
 import { deleteSingleAuthor } from '../api/authorData';
+import { deleteAuthorBooks } from '../api/mergedData';
 
 export default function AuthorCard({ authObj, onUpdate }) {
   // FOR DELETE, WE NEED TO REMOVE THE BOOK AND HAVE THE VIEW RERENDER,
   // SO WE PASS THE FUNCTION FROM THE PARENT THAT GETS THE AUTHORS
   const deleteThisAuthor = () => {
     if (window.confirm(`Delete ${authObj.last_name}?`)) {
+      console.log(authObj.firebaseKey);
       deleteSingleAuthor(authObj.firebaseKey).then(() => onUpdate());
+      deleteAuthorBooks(authObj.firebaseKey).then(() => onUpdate());
     }
   };
 
@@ -23,15 +26,15 @@ export default function AuthorCard({ authObj, onUpdate }) {
           {authObj.first_name} {authObj.last_name}
         </Card.Title>
         <p className="card-text bold">{authObj.email}</p>
-        <p className="card-text bold">Is favorite? : {authObj.favorite}</p>
+        <p className="card-text bold">Is favorite? : {authObj.favorite ? 'YES' : 'no'}</p>
         {/* DYNAMIC LINK TO VIEW THE AUTHOR DETAILS  */}
-        <Link href={`/book/${authObj.firebaseKey}`} passHref>
+        <Link href={`/author/${authObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">
             VIEW
           </Button>
         </Link>
         {/* DYNAMIC LINK TO EDIT THE AUTHOR DETAILS  */}
-        <Link href={`/book/edit/${authObj.firebaseKey}`} passHref>
+        <Link href={`/author/edit/${authObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
         <Button variant="danger" onClick={deleteThisAuthor} className="m-2">

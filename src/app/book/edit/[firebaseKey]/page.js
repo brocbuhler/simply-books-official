@@ -8,8 +8,11 @@ import PropTypes from 'prop-types';
 export default function EditBook({ params }) {
   const [editItem, setEditItem] = useState({});
   // TODO: grab the firebasekey
+  console.warn(params);
+  console.log(typeof params === 'object');
   const { firebaseKey } = params;
-
+  console.log(typeof firebaseKey === 'object');
+  console.warn(firebaseKey);
   // TODO: make a call to the API to get the book data
   useEffect(() => {
     getSingleBook(firebaseKey).then(setEditItem);
