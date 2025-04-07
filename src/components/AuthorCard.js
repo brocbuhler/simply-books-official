@@ -24,7 +24,7 @@ export default function AuthorCard({ authObj, onUpdate }) {
           {authObj.first_name} {authObj.last_name}
         </Card.Title>
         <p className="card-text bold">{authObj.email}</p>
-        <p className="card-text bold">Is favorite? : {authObj.favorite}</p>
+        <p className="card-text bold">Is favorite? : {authObj.favorite ? 'YES' : 'no'}</p>
         {/* DYNAMIC LINK TO VIEW THE AUTHOR DETAILS  */}
         <Link href={`/author/${authObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">
